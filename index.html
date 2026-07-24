@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Su</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0D2E52;
+  --blue: #2A6DB5;
+  --beige: #FAF8F4;
+  --beige-border: #E2D9C8;
+  --muted: #8A7A60;
+  --text: #1A1A18;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--beige);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0 1.25rem;
+  border-bottom: 1px solid var(--beige-border);
+  margin-bottom: 3rem;
+  position: sticky;
+  top: 0;
+  background: var(--beige);
+  z-index: 10;
+}
+.nav-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: 13.5px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--navy); }
+
+/* HEADER */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+.header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+  font-family: Georgia, serif;
+}
+.header .role {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+.header p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 0.85rem;
+}
+.photo {
+  width: 140px;
+  height: 185px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+.photo-placeholder {
+  width: 140px;
+  height: 185px;
+  background: #EDE8DF;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* SOCIAL LINKS */
+.social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  flex-wrap: wrap;
+}
+.social a {
+  font-size: 13px;
+  color: var(--blue);
+  text-decoration: none;
+}
+.social a:hover { text-decoration: underline; }
+
+/* SECTIONS */
+section {
+  margin-bottom: 3rem;
+  padding-top: 0.5rem;
+}
+section h2 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--beige-border);
+}
+
+/* PUBLICATIONS / TALKS */
+.item {
+  margin-bottom: 0.3rem;
+}
+.item h3 {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 2px;
+  line-height: 1.45;
+}
+.item h3 a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--beige-border);
+}
+.item h3 a:hover {
+  border-bottom-color: var(--blue);
+  color: var(--blue);
+}
+.item .meta {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* TEACHING */
+.course {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.25rem 1rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--beige-border);
+  align-items: baseline;
+}
+.course:last-child { border-bottom: none; }
+.course-name {
+  font-size: 14px;
+  color: var(--navy);
+}
+.course-name a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--beige-border);
+}
+.course-name a:hover { border-bottom-color: var(--blue); color: var(--blue); }
+.course-code {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.session-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1rem 0 0.4rem;
+}
+.session-label:first-child { margin-top: 0; }
+
+/* SPEAKING */
+.talk {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--beige-border);
+}
+.talk:last-child { border-bottom: none; }
+.talk-title {
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.talk-meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--beige-border);
+}
+
+@media (max-width: 500px) {
+  .header { grid-template-columns: 1fr; }
+  .photo, .photo-placeholder { width: 100px; height: 130px; }
+  .nav-links { gap: 1rem; }
+  .course { grid-template-columns: 1fr; gap: 0.1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Anna Su</a>
+  <div class="nav-links">
+    <a href="#research">Research</a>
+    <a href="#wip">Works in Progress</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#writing">Writing</a>
+    <a href="Files/Su-CV.pdf">CV</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <h1>Anna Su</h1>
+    <div class="role">
+      Associate Professor · Henry N.R. Jackman Faculty of Law, University of Toronto<br>
+      Cross-appointment, Department of History (by courtesy)<br>
+      Research Lead, Schwartz Reisman Institute for Technology and Society
+    </div>
+    <p>My research spans the law and history of international human rights law, comparative constitutional law, technology and international law, and law and religion. I am currently working on the human rights implications of artificial intelligence, digital constitutionalism, and AI alignment.</p>
+    <p>I hold an SJD from Harvard Law School, where my dissertation was awarded the John Laylin Prize for best paper in international law, and JD and AB degrees from the Ateneo de Manila University. I have clerked for the Philippine Supreme Court and served as consultant to the Philippine government negotiating panel with the Moro Islamic Liberation Front.</p>
+    <div class="social">
+      <a href="mailto:anna.su@utoronto.ca">Email</a>
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=390190" target="_blank">SSRN</a>
+      <a href="https://discover.research.utoronto.ca/16100-anna-su" target="_blank">DiscoverResearch</a>
+      <a href="https://jackmanlaw.utoronto.ca/people/anna-su" target="_blank">Jackman Law</a>
+    </div>
+  </div>
+  <img
+    class="photo"
+    src="Files/pic2.jpg"
+    alt="Anna Su"
+    onerror="this.outerHTML='<div class=\'photo-placeholder\'>Photo</div>'"
+  >
+</div>
+
+<!-- RESEARCH / PUBLICATIONS -->
+<section id="research">
+  <h2>Publications</h2>
+
+  <div class="session-label">Human Rights & AI</div>
+
+  <div class="item">
+    <h3><a href="https://doi.org/10.1080/18918131.2025.2582990" target="_blank">"A Right to Reality: Human Dignity and Generative AI"</a></h3>
+    <div class="meta">Nordic Journal of Human Rights, 43(4), 347–364 (2025)</div>
+  </div>
+
+  <div class="item">
+    <h3><a href="https://utppublishing.com/doi/10.3138/utlj-2025-0034" target="_blank">"Gender Equality, AI, and Human Rights"</a></h3>
+    <div class="meta">University of Toronto Law Journal, vol. 75, Supplement no. 1 (2025)</div>
+  </div>
+
+  <div class="item">
+    <h3><a href="https://lthj.qut.edu.au/article/view/2332" target="_blank">"The Promise and Perils of International Human Rights Law for AI Governance"</a></h3>
+    <div class="meta">Law, Technology, and Humans (2022)</div>
+  </div>
+
+  <div class="session-label">Law & Religion</div>
+
+  <div class="item">
+    <h3><a href="https://digitalcommons.law.byu.edu/lawreview/vol47/iss4/" target="_blank">"Liberalism, Catholic Integralism and the Question of Religious Freedom"</a></h3>
+    <div class="meta">BYU Law Review (2022)</div>
+  </div>
+
+  <div class="item">
+    <h3>"Transformative State Neutrality"</h3>
+    <div class="meta">In Derek Ross & Sarah Mix-Ross eds., <em>Canadian Pluralism and the Charter: Moral Diversity in a Free and Democratic Society</em> (2019)</div>
+  </div>
+
+  <div class="item">
+    <h3>"Establishment"</h3>
+    <div class="meta">In Joshua Dubler and Isaac Weiner eds., <em>Religion, Law, USA</em> · NYU Press (2019)</div>
+  </div>
+
+  <div class="item">
+    <h3>"Varieties of Burden in Religious Accommodations"</h3>
+    <div class="meta">34 Journal of Law and Religion 42 (2019)</div>
+  </div>
+
+  <div class="item">
+    <h3><a href="http://www.hup.harvard.edu/catalog.php?isbn=9780674286023" target="_blank">Exporting Freedom: Religious Liberty and American Power</a></h3>
+    <div class="meta">Harvard University Press (2016)</div>
+  </div>
+
+  <div class="item">
+    <h3><a href="http://ndlawreview.org/wp-content/uploads/2016/06/NDL407.pdf" target="_blank">"Catholic Constitutionalism from the Americanist Controversy to <em>Dignitatis Humanae</em>"</a></h3>
+    <div class="meta">91 Notre Dame Law Review 101 (2016)</div>
+  </div>
+
+  <div class="item">
+    <h3>"Judging Religious Sincerity"</h3>
+    <div class="meta">5 Oxford Journal of Law and Religion 28 (2016)</div>
+  </div>
+
+  <div class="session-label">International Human Rights Law</div>
+
+  <div class="item">
+    <h3>"Rise and Fall of Universal Civil Jurisdiction"</h3>
+    <div class="meta">41 Human Rights Quarterly 849 (2019)</div>
+  </div>
+
+  <p style="margin-top:0.75rem;font-size:13px;color:var(--muted);">
+    <a href="https://discover.research.utoronto.ca/16100-anna-su/publications" target="_blank" style="color:var(--blue);">View all publications on DiscoverResearch →</a>
+  </p>
+</section>
+
+<!-- WORKS IN PROGRESS -->
+<section id="wip">
+  <h2>Works in Progress</h2>
+
+  <div class="item">
+    <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6660120" target="_blank">"Can AI Agents have Rights?"</a></h3>
+    <div class="meta">With Sue Anne Teo (2026)</div>
+  </div>
+
+  <div class="item">
+    <h3>"Human Rights-Following AI"</h3>
+    <div class="meta">Working paper</div>
+  </div>
+
+  <div class="item">
+    <h3>"Attribution and AI in International Justice"</h3>
+    <div class="meta">Book chapter (forthcoming)</div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <h2>Teaching · 2026–2027</h2>
+
+  <div class="course">
+    <div class="course-name"><a href="https://jackmanlaw.utoronto.ca/jd-program/course/2026-2027/first-year-constitutional-law" target="_blank">First Year: Constitutional Law A</a></div>
+    <div class="course-code">LAW136Y1Y</div>
+  </div>
+  <div class="course">
+    <div class="course-name"><a href="https://jackmanlaw.utoronto.ca/jd-program/course/2026-2027/journal-law-and-equality" target="_blank">Journal: Law and Equality</a></div>
+    <div class="course-code">LAW493Y1Y</div>
+  </div>
+  <div class="course">
+    <div class="course-name"><a href="https://jackmanlaw.utoronto.ca/jd-program/course/2026-2027/first-year-indigenous-peoples-and-law-0101" target="_blank">First Year: Indigenous Peoples and the Law (0101)</a></div>
+    <div class="course-code">LAW108H1F</div>
+  </div>
+  <div class="course">
+    <div class="course-name"><a href="https://jackmanlaw.utoronto.ca/jd-program/course/2026-2027/first-year-indigenous-peoples-and-law-0102" target="_blank">First Year: Indigenous Peoples and the Law (0102)</a></div>
+    <div class="course-code">LAW108H1F</div>
+  </div>
+  <div class="course">
+    <div class="course-name"><a href="https://jackmanlaw.utoronto.ca/jd-program/course/2026-2027/law-religion-and-democracy" target="_blank">Law, Religion, and Democracy</a></div>
+    <div class="course-code">LAW279H1S</div>
+  </div>
+</section>
+
+<!-- PUBLIC WRITING -->
+<section id="writing">
+  <h2>Public Writing</h2>
+
+  <div class="item">
+    <h3><a href="https://tif.ssrc.org/2026/07/08/the-popes-love-letter-to-humanity-at-the-dawn-of-ai/" target="_blank">"The Pope's Love Letter to Humanity at the Dawn of AI"</a></h3>
+    <div class="meta">The Immanent Frame · Social Science Research Council (July 8, 2026)<br>
+    Also published at <a href="https://just-tech.ssrc.org/articles/the-popes-love-letter-to-humanity-at-the-dawn-of-ai/" target="_blank" style="color:var(--blue);">Just Tech</a></div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <h2>CV</h2>
+  <p style="font-size:14px;">
+    <a href="Files/Su-CV.pdf" style="color:var(--blue);">Download CV (PDF) →</a>
+  </p>
+</section>
+
+<footer>
+  Anna Su · Henry N.R. Jackman Faculty of Law, University of Toronto · <a href="mailto:anna.su@utoronto.ca" style="color:var(--muted);">anna.su@utoronto.ca</a>
+</footer>
+
+</body>
+</html>
